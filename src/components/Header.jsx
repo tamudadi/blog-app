@@ -3,13 +3,9 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header className="header">
-      <Link to="/" className="header-link">
-        Blog
-      </Link>
-      <Link to="/contact" className="header-link">
-        お問い合わせ
-      </Link>
+    <header className="text-white bg-[#333] p-7 font-bold flex justify-between">
+      <Link to="/">Blog</Link>
+      <Link to="/contact">お問い合わせ</Link>
     </header>
   );
 }

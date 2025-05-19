@@ -4,7 +4,7 @@ import { posts } from '../data/posts';
 export const Home = () => {
   return (
     <div>
-      <div className="container my-10 mx-auto px-4">
+      <div className="max-w-3xl my-10 mx-auto px-4">
         <ul>
           {posts.map((post) => (
             <li key={post.id} className="flex flex-col text-[#333]">
