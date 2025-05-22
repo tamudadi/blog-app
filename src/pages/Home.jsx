@@ -15,11 +15,11 @@ export const Home = () => {
                     <div className="text-xs text-[#888]">
                       {new Date(post.createdAt).toLocaleDateString()}
                     </div>
-                    <div className="flex">
+                    <div className="flex gap-2">
                       {post.categories.map((category) => (
                         <div
                           key={category}
-                          className="border rounded px-1.5 py-1 text-sm text-[#06C] border-[#06C] mr-2"
+                          className="border rounded px-1.5 py-1 text-sm text-[#06C] border-[#06C] "
                         >
                           {category}
                         </div>
