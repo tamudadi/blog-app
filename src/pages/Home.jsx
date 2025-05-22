@@ -6,11 +6,11 @@ export const Home = () => {
   return (
     <div>
       <div className="max-w-3xl my-10 mx-auto px-4">
-        <ul>
+        <ul className="flex flex-col gap-8">
           {posts.map((post) => (
             <li key={post.id} className="flex flex-col text-[#333]">
               <Link to={`/posts/${post.id}`}>
-                <div className="mb-8 border p-4 border-gray-300">
+                <div className=" border p-4 border-gray-300">
                   <div className="flex justify-between">
                     <div className="text-xs text-[#888]">
                       {new Date(post.createdAt).toLocaleDateString()}
