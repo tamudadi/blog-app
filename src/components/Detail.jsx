@@ -28,9 +28,8 @@ export const Detail = () => {
   }, [id]);
 
   if (error) return <div>{error}</div>;
-  if (isLoading || !post) {
-    return <div>{isLoading ? '読み込み中...' : '記事が見つかりません'}</div>;
-  }
+  if (isLoading) return <div>読み込み中...</div>;
+  if (!post) return <div>記事が見つかりません</div>;
 
   return (
     <div>

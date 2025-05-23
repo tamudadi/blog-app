@@ -7,7 +7,7 @@ export const Home = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPost = async () => {
+    const fetchPosts = async () => {
       setIsLoading(true);
       try {
         const res = await fetch(
@@ -23,14 +23,12 @@ export const Home = () => {
       }
     };
 
-    fetchPost();
+    fetchPosts();
   }, []);
 
   if (error) return <div>{error}</div>;
-
-  if (isLoading || !posts) {
-    return <div>{isLoading ? '読み込み中...' : '記事が見つかりません'}</div>;
-  }
+  if (isLoading) return <div>読み込み中...</div>;
+  if (!posts) return <div>記事が見つかりません</div>;
 
   return (
     <div>
