@@ -66,15 +66,13 @@ export const Contact = () => {
         'https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts',
         params
       );
+      alert('送信しました');
+      handleClear();
     } catch (error) {
       alert(`送信に失敗しました。${error}`);
-      return;
     } finally {
       setIsSending(false);
     }
-
-    alert('送信しました');
-    handleClear();
   };
 
   const handleClear = () => {
