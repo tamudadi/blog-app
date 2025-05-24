@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { posts } from '../data/posts';
 
 export const Home = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setIsLoading(true);
+      try {
+        const res = await fetch(
+          `https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts`
+        );
+        const { posts } = await res.json();
+        setPosts(posts);
+      } catch (error) {
+        console.error(error);
+        setError('記事の取得に失敗しました');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (error) return <div>{error}</div>;
+  if (isLoading) return <div>読み込み中...</div>;
+  if (posts.length === 0) return <div>記事が見つかりません</div>;
+
   return (
     <div>
       <div className="max-w-3xl my-10 mx-auto px-4">
