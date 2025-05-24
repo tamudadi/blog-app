@@ -28,7 +28,7 @@ export const Home = () => {
 
   if (error) return <div>{error}</div>;
   if (isLoading) return <div>読み込み中...</div>;
-  if (!posts) return <div>記事が見つかりません</div>;
+  if (posts.length === 0) return <div>記事が見つかりません</div>;
 
   return (
     <div>
